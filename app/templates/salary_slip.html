@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salary Slip</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 30px;
+        }
+
+        .salary-slip {
+            width: 750px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border: 1px solid #333;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            border: 1px solid #333;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .company-name {
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            background: #e8e8e8;
+        }
+
+        .section-heading {
+            background: #e8e8e8;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .total {
+            font-weight: bold;
+            background: #f0f0f0;
+        }
+
+        .net-salary {
+            font-weight: bold;
+            font-size: 17px;
+            background: #dcebdc;
+        }
+    </style>
+</head>
+
+<body>
+    {%load month_tags%}
+
+<div class="salary-slip">
+
+    <table>
+        <tr>
+            <td colspan="4" class="company-name">
+                EMCTECH PRIVATE LIMITED
+            </td>
+        </tr>
+
+        <tr>
+            <td class="label">EMP ID</td>
+            <td>{{emp.emp_id}}</td>
+            <td class="label">DEPT</td>
+            <td>{{emp.dept}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">NAME</td>
+            <td>{{emp.name}}</td>
+            <td class="label">DESIGNATION</td>
+            <td>{{emp.desg}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">GROSS</td>
+            <td colspan="3">{{emp.gross}}</td>
+        </tr>
+
+        <tr>
+            <th colspan="2" class="section-heading">EARNINGS</th>
+            <th colspan="2" class="section-heading">DEDUCTIONS</th>
+        </tr>
+
+        <tr>
+            <td class="label">BASIC</td>
+            <td>{{emp.basic}}</td>
+            <td class="label">PF</td>
+            <td>{{emp.pf}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">HRA</td>
+            <td>{{emp.hra}}</td>
+            <td class="label">ESI</td>
+            <td>{{emp.esi}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">DA</td>
+            <td>{{emp.da}}</td>
+            <td class="label">TAX</td>
+            <td>{{emp.tax}}</td>
+        </tr>
+
+        <tr>
+            <td class="label">ATT</td>
+            <td>{{emp.att_allowance}}</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td class="label">WA</td>
+            <td>{{emp.wa}}</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td class="label">INCENTIVES</td>
+            <td>{{emp.incentives}}</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr class="total">
+            <td>TOTAL EARNINGS</td>
+            <td>{{total}}</td>
+            <td>TOTAL DEDUCTIONS</td>
+            <td>{{emp.deductions}}</td>
+        </tr>
+
+        <tr class="net-salary">
+            <td colspan="2"></td>
+            <td>NET SALARY</td>
+            <td>{{emp.net_salary}}</td>
+        </tr>
+
+    </table>
+
+</div>
+
+<div>
+    <p>Note : This is a computer generated mail not an official copy from organization...</p>
+</div>
+
+</body>
+</html>
